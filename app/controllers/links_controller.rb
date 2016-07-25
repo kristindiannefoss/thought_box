@@ -18,6 +18,11 @@ class LinksController < ApplicationController
     @links = @user.links
   end
 
+  def update
+    @link = @user.links.update(link_params)
+    redirect_to links_path
+  end
+
   private
 
     def set_user
