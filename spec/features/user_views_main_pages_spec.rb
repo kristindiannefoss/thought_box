@@ -20,11 +20,17 @@ RSpec.feature "UserViewsMainPages", type: :feature do
     # A valid URL location for the link
     fill_in("URL", :with => "http://www.deepthoughtsbyjackhandey.com/")
     click_on("Save Link")
+    fill_in("Title", :with => "stuff thoughts")
+    # A valid URL location for the link
+    fill_in("URL", :with => "http://www.thomasnelson.com/man-stuff")
+    click_on("Save Link")
 
     # A title for the link
     # Additionally, all links have a read status that is either true or false. This column will default to false.
     expect(page).to have_content("deep thoughts")
     expect(page).to have_content("http://www.deepthoughtsbyjackhandey.com/")
+    expect(page).to have_content("stuff thoughts")
+    expect(page).to have_content("http://www.thomasnelson.com/man-stuff")
 
 # Submitting an invalid link should result in an error message being displayed.
   fill_in("Title", :with => "more thoughts")

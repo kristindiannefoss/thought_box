@@ -10,8 +10,8 @@
   <h1>My Links</h1>
 
   <% @links.each do |link| %>
-    <%= link.title %>
-    <%= link.url %>
-    <%= link.read %>
+      <p>
+        <%= link.title %> <%= link.url %> <%= link.read %>
+      </p>
   <% end %>
 </div>
