@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
 
   resources :users, only: [:create]
-  resources :links, only: [:index]
+  resources :links
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do

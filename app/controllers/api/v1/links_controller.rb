@@ -1,7 +1,7 @@
 class Api::V1::LinksController < Api::ApiController
   respond_to :json
   before_action :set_user
-  
+
   def index
     respond_with @user.links.all
   end
@@ -22,8 +22,10 @@ class Api::V1::LinksController < Api::ApiController
   end
 
   def update
-    @link = @user.links.find(params[:id])
-    respond_with @link if @link.update(link_params)
+    @link = Link.find(params[:id])
+    @link.update(link_params)
+    # @link = Link.find(params[:id])
+    # respond_with @link if @link.update(link_params)
   end
 
   private
