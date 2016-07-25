@@ -42,9 +42,7 @@ RSpec.feature "UserViewsMainPages", type: :feature do
   expect(page).to_not have_content("more thoughts")
   expect(page).to_not have_content("kitten.m")
 
-#
-# Once a link has been submitted, loading the index page should display all of my links.
-
+  # Once a link has been submitted, loading the index page should display all of my links.
 
   end
 
