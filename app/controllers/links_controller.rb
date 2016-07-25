@@ -8,6 +8,10 @@ class LinksController < ApplicationController
 
   def create
     @link = @user.links.create(link_params)
+    if @link.save
+    else
+      flash.now[:error] = "Invalid url, please try a valid web address"
+    end
     redirect_to links_path
   end
 

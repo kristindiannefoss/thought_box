@@ -8,8 +8,8 @@ RSpec.feature "UserLogin", type: :feature do
     # I should be redirected to a page which prompts me to "Log In or Sign Up".
     visit "/"
 
-    assert page.has_content?("Log In")
-    assert page.has_content?("Sign Up")
+    expect(page).to have_content("Log In")
+    expect(page).to have_content("Sign Up")
   end
 
   scenario "user clicks on sign_up" do
@@ -32,10 +32,8 @@ RSpec.feature "UserLogin", type: :feature do
 
     assert_equal "/dashboard", current_path
 
-    assert page.has_content?('test@gmail.com')
-    refute page.has_link? "Login"
-    assert page.has_link? "Logout"
-
+    expect(page).to have_content('test@gmail.com')
+    expect(page).to_not have_link "Login"
+    expect(page).to have_link "Logout"
   end
-
 end
