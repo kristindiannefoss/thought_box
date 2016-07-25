@@ -8,12 +8,15 @@
   <% end %>
 
   <h1>My Links</h1>
+  <div id="link-list">
 
-  <% @links.each do |link| %>
-    <section id="link.id">
-      <p>
-        <%= link.title %> <%= link.url %> <%= link.read %> <%= link_to "Mark as Read" %>
-      </p>
-    </section>
-  <% end %>
+    <% @links.each do |link| %>
+      <div id="div"<%= "#{link.id}" %> >
+        <p>
+          <%= link.title %> <%= link.url %> <%= link.read %>
+           <a href="#" class"mark-read" id=<%= "#{link.id}" %> >Mark as Read</a>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>
