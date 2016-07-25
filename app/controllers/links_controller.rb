@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-
   before_action :set_user
 
   # TODO: get this flash message working and tested
@@ -15,11 +14,13 @@ class LinksController < ApplicationController
 
   def index
     @link = @user.links.new
+    # @link = Link.find_by(params[:id])
     @links = @user.links
   end
 
   def update
-    @link = @user.links.update(link_params)
+    @link = Link.find_by(params[:id])
+    @link.update(link_params)
     redirect_to links_path
   end
 
@@ -30,7 +31,7 @@ class LinksController < ApplicationController
     end
 
     def link_params
-      params.require(:link).permit(:id, :title, :url, :read)
+      params.require(:link).permit(:id, :title, :url, :read, :user_id)
     end
 
 end
