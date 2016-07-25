@@ -28,10 +28,14 @@ RSpec.feature "UserLogin", type: :feature do
     # I cannot sign up with an email address that has already been used.
     # Password and confirmation must match.
 
-    click("Submit")
-    # assert page.has_content?("Log In")
-    # assert page.has_content?("Sign Up")
-  end
+    click_on("Create Account")
 
+    assert_equal "/dashboard", current_path
+
+    assert page.has_content?('test@gmail.com')
+    refute page.has_link? "Login"
+    assert page.has_link? "Logout"
+
+  end
 
 end
