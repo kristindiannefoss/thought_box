@@ -20,7 +20,10 @@ function linkHTML(link){
 
       " class='title-input'>" + link.title + "</td>" +
 
-      "<td contenteditable='false' class='url-input'>" + link.url + "</td>" +
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='url-input'>" + link.url + "</td>" +
+      
       "<td>" + link.read + "<td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
