@@ -15,23 +15,38 @@ function linkHTML(link){
   if(link.read === true){
     return (
       "<tr data-link-id=" + link.id + " class='been-there'>" +
-      "<td contenteditable='true' data-link-id=" + link.id +
-      "class='title-input'>" + link.title + "</td>" +
-      "<td contenteditable='true' class='url-input'>" + link.url + "</td>" +
+
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='title-input'>" + link.title + "</td>" +
+
+      "<td contenteditable='false' class='url-input'>" + link.url + "</td>" +
       "<td>" + link.read + "<td>" +
-      "<button class='btn btn-default fake-link' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" +
+
+      "<button class='btn btn-default read-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
+
+      "<button class='btn btn-default edit-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Edit</button></td>" +
       "</tr>"
     );
   } else {
     return (
       "<tr data-link-id=" + link.id + ">" +
-      "<td contenteditable='true' data-link-id=" + link.id +
-      "class='title-input'>" + link.title + "</td>" +
-      "<td contenteditable='true' class='url-input'>" + link.url + "</td>" +
+
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='title-input'>" + link.title + "</td>" +
+
+      "<td contenteditable='false' class='url-input'>" + link.url + "</td>" +
+
       "<td>" + link.read + "<td>" +
-      "<button class='btn btn-default fake-link' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" +
+
+      "<button class='btn btn-default read-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
+
+      "<button class='btn btn-default edit-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Edit</button></td>" +
       "</tr>"
     );
   }
