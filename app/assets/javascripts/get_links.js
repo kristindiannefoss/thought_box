@@ -24,11 +24,7 @@ function linkHTML(link){
       "<td>" + link.read + "<td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
-
-      "<button class='btn btn-default edit-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Edit</button></td>" +
-      "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
     );
   } else {
     return (
@@ -43,11 +39,7 @@ function linkHTML(link){
       "<td>" + link.read + "<td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
-
-      "<button class='btn btn-default edit-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Edit</button></td>" +
-      "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
     );
   }
 }

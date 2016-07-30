@@ -1,11 +1,31 @@
 $(document).ready(function (){
   loadLinks();
   listenForReturn();
-  listenForBlur();
 
-  // $('#links-div').on('blur', '.title-input', function() {
-  //   console.log('baaaa');
-  //   $(this).attr('contentEditable', 'false');
-  // });
+  $('#links-div').on('blur', '.title-input', function() {
+    $(this).attr('contentEditable', 'false');
+    $(this).css("background-color", "yellow");
+      $.ajax({
+        method: 'PATCH',
+        url: "api/v1/links/" + this.dataset.linkId,
+        dataType: "json",
+        data: {link: {id: this.dataset.linkId, title: this.innerText, user_id: this.dataset.userId}},
+        success: function(){
+        }
+      });
+  });
 
+  $('#links-div').on('blur', '.url-input', function() {
+    $(this).attr('contentEditable', 'false');
+    $(this).css("background-color", "blue");
+    debugger;
+      $.ajax({
+        method: 'PATCH',
+        url: "api/v1/links/" + this.dataset.linkId,
+        dataType: "json",
+        data: {link: {id: this.dataset.linkId, url: this.innerText, user_id: this.dataset.userId}},
+        success: function(){
+        }
+      });
+  });
 });
