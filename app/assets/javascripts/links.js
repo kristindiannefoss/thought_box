@@ -1,92 +1,43 @@
-$(document).ready(function () {
+$(document).ready(function (){
+  loadLinks();
+});
 
-  // $.get('/api/v1/links').then(function(jsonData){
-  //       $(jsonData).each(function(link){
-  //                 debugger;
-  //               var id = link.id;
-  //               var title = link.title;
-  //               var url = link.url;
-  //               var read = link.read;
-  //
-  //               $("body").append("<p>" + title + "<p>");
-  //   });
-  // });
-  function pleaseOmg(){
-    $.ajax({
-      type: 'GET',
-      url: '/api/v1/links',
-      dataType: 'json',
-      data: jsonData,
-      success: collectLinks(data)
-    });
+function loadLinks(){
+  $.ajax({
+    type: 'GET',
+    url: '/api/v1/links',
+    dataType: 'JSON',
+    success: function(response){
+      response.map(function(link){
+        $('#links-table').append(linkHTML(link));
+      });
+    }
+  });
+}
 
-    function collectLinks(jsonData){
-      jsonData.each(function(link){
-                var id = link.id;
-                var title = link.title;
-                var url = link.url;
-                var read = link.read;
+function linkHTML(link){
+    return (
+      "<tr data-link-id=" + link.id + ">" +
+      "<td contenteditable='true' data-link-id=" + link.id +
+      "class='title-input'>" + link.title + "</td>" +
+      "<td contenteditable='true' class='url-input'>" + link.url + "</td>" +
+      "<td>" + link.read + "<td>" +
+      "<button class='btn btn-default fake-link' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" +
+      "</tr>"
+  );
+}
 
-    $("body").append("<p>" + title + "<p>");
-  }
-
-    debugger;
-      // jsonData.responseText.each(function(link){
-      //           var id = link.id;
-      //           var title = link.title;
-      //           var url = link.url;
-      //           var read = link.read;
-      //
-      //           $("body").append("<p>" + title + "<p>");
-      // });
-  }
-
-  //
-  // function getLink(){
-  //     $.ajax({
-  //       type: 'GET',
-  //       url: '/api/v1/links',
-  //       success: function(jsonData) {
-  //         Link.collectLinks(jsonData);
-  //       },
-  //       error: function() {
-  //         alert('Error loading');
-  //       }
-  //     });
-  //       var Link = {
-  //         collectLink: function(jsonData) {
-  //             $(jsonData).each(function(link){
-  //               debugger;
-  //             var id = link.id;
-  //             var title = link.title;
-  //             var url = link.url;
-  //             var read = link.read;
-  //
-  //             $("body").append("<p>" + title + "<p>");
-  //             // $("#link-table").append("<tr><td>" + title + "</td></tr>");
-  //
-  //             // $("table#link-table").append("<tr id=" + id + " data-id=" + id +
-  //             // "><td contenteditable='true' id=" + id + " class='title-input'>" +
-  //             // title + "</td><td contenteditable='true' class='url-input'>" +
-  //             // url + "</td><td>" +
-  //             // read +
-  //             // "<td><button class='btn btn-default read-button' id='read-button'>Mark as Read</button></td></tr>");
-  //           });
-  //         }
-  //       };
-  //
-  // }
-
-
-  $('.fake-link').on('click', function(e){
-    console.log("ouch");
+$(document).on('click', '.fake-link', function(e){
+  // debugger;
+  console.log(e.target.dataset.linkId);
     $.ajax({
       method: 'PATCH',
-      url: "api/v1/links/" + e.target.id,
+      url: "api/v1/links/" + e.target.dataset.linkId,
       dataType: "json",
-      data: {read: true}
+      data: {link: {id: e.target.dataset.linkId, read: true, user_id: e.target.dataset.userId}},
+      success: function(link){
+        console.log(e.target.dataset.linkId);
+      }
     });
-  });
-
-
 });

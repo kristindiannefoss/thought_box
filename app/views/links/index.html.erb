@@ -1,14 +1,16 @@
 <div class="container">
   <h1>Submit a New Link</h1>
 
-  <!-- <%= form_for(@link) do |f| %>
+  <%= form_for(@link) do |f| %>
     <%= f.text_field :title, placeholder: "Title", class:"form-control" %><br>
     <%= f.text_field :url, placeholder: "URL", class:"form-control" %><br>
     <%= f.submit "Save Link", class:"btn btn-primary"%>
-  <% end %> -->
+  <% end %>
 
   <h1>My Links</h1>
-  <table id="link-table">
+    <div id="links-div">
+      <table id="links-table">
 
-  </table>
+      </table>
+    </div>
 </div>
