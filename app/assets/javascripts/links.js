@@ -38,6 +38,10 @@ $(document).on('click', '.fake-link', function(e){
       data: {link: {id: e.target.dataset.linkId, read: true, user_id: e.target.dataset.userId}},
       success: function(link){
         console.log(e.target.dataset.linkId);
+        $("tr[data-link-id='" + e.target.dataset.linkId + "']").addClass("been-there");
+
+        // $("tr[data-link-id='" + 8 + "']").addClass("been-there");
+
       }
     });
 });
