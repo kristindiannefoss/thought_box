@@ -14,32 +14,28 @@ function updateLink(e){
   });
 }
 
-// function listenForChangeAndSave(e){
-//   // document.addEventListener("keydown", function(e) {
-//   //   // console.log(e.which);
-//   //   if (e.which == '13'){
-//   //     e.preventDefault();
-//   //     console.log(e.target.innerText);
-//   //   }
-//   // });
-//   document.addEventListener("blur", function(e) {
-//     debugger;
-//     // console.log(e.which);
-//     // if (e.which == '13'){
-//     //   e.preventDefault();
-//       console.log(e.target.innerText + "blur");
-//       // console.log(e.target.innerText);
-//     // }
-//
-//   });
-// }
-
-function listenForBlur(){
-  $('td').blur(function(){
-    // alert("This input field has lost its focus.");
-    console.log("blur");
+function listenForReturn(e){
+  document.addEventListener("keydown", function(e) {
+    // console.log(e.which);
+    if (e.which == '13') {
+      e.preventDefault();
+      // console.log(e.target.innerText);
+      console.log("superb");
+    }
   });
 }
+
+function listenForBlur(){
+  // document.addEventListener("blur", function() {
+  //   // console.log(e.which);
+  //     console.log("shitaki");
+  // });
+    $("td").blur(function(){
+      $(this).css("background-color", "yellow");
+  });
+}
+
+
     // $.ajax({
     //   method: 'PATCH',
     //   url: "api/v1/links/" + e.target.dataset.linkId,
@@ -53,10 +49,8 @@ function listenForBlur(){
 
 $(document).on('click', '.title-input', function(e){
   console.log(e.target.dataset.linkId);
-  // console.log(e.target.innerText);
-  // debugger;
+  console.log(e.target.innerText);
   makeEditiable(e);
-  // listenForChangeAndSave();
 });
 
 function makeEditiable(e){
