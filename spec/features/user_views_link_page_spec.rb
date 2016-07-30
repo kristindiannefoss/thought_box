@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "UserViewsMainPages", type: :feature do
+RSpec.feature "UserViewsLinkPage", type: :feature do
   it "displays link form and user's link list" do
     n = Random.rand(1..1000)
     visit "/"
@@ -31,19 +31,16 @@ RSpec.feature "UserViewsMainPages", type: :feature do
     expect(page).to have_content("http://www.deepthoughtsbyjackhandey.com/")
     expect(page).to have_content("stuff thoughts")
     expect(page).to have_content("http://www.thomasnelson.com/man-stuff")
-
-# Submitting an invalid link should result in an error message being displayed.
-  fill_in("Title", :with => "more thoughts")
-  # A valid URL location for the link
-  fill_in("URL", :with => "kitten.m")
-  click_on("Save Link")
-  # expect(page).to have_content("Invalid url, please try a valid web address")
-  # expect(flash[:error]).to be_present
-  expect(page).to_not have_content("more thoughts")
-  expect(page).to_not have_content("kitten.m")
-
-  # Once a link has been submitted, loading the index page should display all of my links.
-
+    # Submitting an invalid link should result in an error message being displayed.
+    fill_in("Title", :with => "more thoughts")
+    # A valid URL location for the link
+    fill_in("URL", :with => "kitten.m")
+    click_on("Save Link")
+    # expect(page).to have_content("Invalid url, please try a valid web address")
+    # expect(flash[:error]).to be_present
+    expect(page).to_not have_content("more thoughts")
+    expect(page).to_not have_content("kitten.m")
+    # Once a link has been submitted, loading the index page should display all of my links.
   end
 
 end
