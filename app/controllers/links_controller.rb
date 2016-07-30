@@ -14,7 +14,6 @@ class LinksController < ApplicationController
 
   def index
     @link = @user.links.new
-    # @link = Link.find_by(params[:id])
     @links = @user.links
   end
 
