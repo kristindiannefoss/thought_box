@@ -24,7 +24,14 @@ function updateUrl(id, url){
     method: 'PATCH',
     url: "api/v1/links/" + id,
     dataType: "json",
-    data: {link: {id: id, url: url}}
+    data: {link: {id: id, url: url},},
+    success: function(link){
+    },
+    error: function(){
+      alert("bad news");
+    }
+          // $("#links-table tr").remove();
+          // loadLinks();
   });
 }
 
