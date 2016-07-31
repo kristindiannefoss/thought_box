@@ -10,6 +10,13 @@ $(document).on('click', '.url-input', function(e){
   e.target.setAttribute("contenteditable", "true");
 });
 
+$(document).on('click', '#baby-fake-button', function(e){
+  var titleValue = $("#fake-form-title").val();
+  console.log("that tickles");
+  console.log(titleValue);
+  debugger;
+});
+
 function updateTitle(id, title){
   $.ajax({
     method: 'PATCH',
