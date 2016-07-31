@@ -12,10 +12,25 @@ $(document).on('click', '.url-input', function(e){
 
 $(document).on('click', '#baby-fake-button', function(e){
   var titleValue = $("#fake-form-title").val();
+  var urlValue = $("#fake-form-url").val();
   console.log("that tickles");
-  console.log(titleValue);
-  debugger;
+  createNewLink(titleValue, urlValue);
+  // console.log(titleValue);
+  // console.log(titleUrl);
+  // debugger;
 });
+
+function createNewLink(title, url){
+  $.ajax({
+    method: 'POST',
+    url: "api/v1/links/",
+    dataType: "json",
+    data: {link: {title: title, url: url}},
+    success: function(response){
+        $('#links-table').append(linkHTML(response));
+      }
+  });
+}
 
 function updateTitle(id, title){
   $.ajax({
