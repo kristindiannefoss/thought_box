@@ -2,6 +2,11 @@ $(document).on('click', '.read-button', function(e){
   updateRead(e);
 });
 
+$(document).on('click', '#alpha-fake-button', function(e){
+  console.log('ouch');
+  loadLinksByAlpha();
+});
+
 $(document).on('click', '.title-input', function(e){
   e.target.setAttribute("contenteditable", "true");
 });
@@ -31,19 +36,3 @@ function listenForReturn(e){
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// g

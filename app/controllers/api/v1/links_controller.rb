@@ -3,7 +3,7 @@ class Api::V1::LinksController < Api::ApiController
 
   def index
     user = current_user
-    respond_with user.links.order('id')
+    respond_with [user.links.order('id'), user.links.order('title')]
   end
 
   def show

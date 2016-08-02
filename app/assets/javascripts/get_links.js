@@ -4,7 +4,21 @@ function loadLinks(){
     url: '/api/v1/links',
     dataType: 'JSON',
     success: function(response){
-      response.map(function(link){
+      response[0].map(function(link){
+        $('#links-table').append(linkHTML(link));
+      });
+    }
+  });
+}
+
+function loadLinksByAlpha(){
+  $.ajax({
+    type: 'GET',
+    url: '/api/v1/links',
+    dataType: 'JSON',
+    success: function(response){
+      $('#links-table').children().remove();
+      response[1].map(function(link){
         $('#links-table').append(linkHTML(link));
       });
     }
