@@ -14,25 +14,37 @@ function loadLinks(){
 function linkHTML(link){
   if(link.read === true){
     return (
-      "<tr data-link-id=" + link.id + " class='been-there'>" +
-      "<td contenteditable='true' data-link-id=" + link.id +
-      "class='title-input'>" + link.title + "</td>" +
-      "<td contenteditable='true' class='url-input'>" + link.url + "</td>" +
+      "<tr data-link-id=" + link.id +
+      " data-link-title=" + link.title +
+      " class='been-there link'>" +
+
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='title-input'>" + link.title + "</td>" +
+
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='url-input'>" + link.url + "</td>" +
+
       "<td>" + link.read + "<td>" +
-      "<button class='btn btn-default fake-link' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" +
-      "</tr>"
+
+      "<button class='btn btn-default read-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
     );
   } else {
     return (
-      "<tr data-link-id=" + link.id + ">" +
-      "<td contenteditable='true' data-link-id=" + link.id +
-      "class='title-input'>" + link.title + "</td>" +
-      "<td contenteditable='true' class='url-input'>" + link.url + "</td>" +
+      "<tr data-link-id=" + link.id +
+      " data-link-title=" + link.title + " class='link'>" +
+      "<td contenteditable='false' data-link-id=" + link.id +
+
+      " class='title-input'>" + link.title + "</td>" +
+
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td>" +
+
       "<td>" + link.read + "<td>" +
-      "<button class='btn btn-default fake-link' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" +
-      "</tr>"
+
+      "<button class='btn btn-default read-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
     );
   }
 }

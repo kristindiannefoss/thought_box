@@ -7,7 +7,7 @@ class LinksController < ApplicationController
     @link = @user.links.create(link_params)
     if @link.save
     else
-      flash[:message] = "Invalid url, please try a valid web address"
+      flash[:notice] = "Invalid url, please try a valid web address"
     end
     redirect_to links_path
   end
