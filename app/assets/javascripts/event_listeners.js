@@ -94,21 +94,20 @@ function filterByReadStatus(){
   });
 }
 
-// function filterByTitle(){
-//   $('#link_title').on('keyup', function (){
-//     debugger;
-//     var keyword = this.value;
-//     // console.log(keyword);
-//     $('.link').each(function (index, link) {
-//       $link = $(link);
-//       if ($link.data('link-title').toLowerCase().includes(keyword.toLowerCase())) {
-//         $need.show();
-//       } else {
-//         $need.hide();
-//       }
-//     });
-//   });
-// }
+function filterByTitle(){
+  $('.title-search').keyup (function (){
+    var keyword = this.value;
+    console.log(keyword);
+    $('.link').each(function (index, link) {
+      $link = $(link);
+      if ($link.data('link-title').toLowerCase().includes(keyword.toLowerCase())) {
+        $link.show();
+      } else {
+        $link.hide();
+      }
+    });
+  });
+}
 
 
 

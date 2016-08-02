@@ -23,14 +23,10 @@ function linkHTML(link){
 
       " class='title-input'>" + link.title + "</td>" +
 
-      "<td contenteditable='false' data-link-id=" + link.id +
-
-      " class='url-input'>" + link.url + "</td>" +
-
-      "<td>" + link.read + "<td>" +
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" + "</tr>"
     );
   } else {
     return (
@@ -42,12 +38,10 @@ function linkHTML(link){
 
       " class='title-input'>" + link.title + "</td>" +
 
-      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td>" +
-
-      "<td>" + link.read + "<td>" +
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button></td>" + "</tr>"
     );
   }
 }
