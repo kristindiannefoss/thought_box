@@ -33,9 +33,9 @@ function linkHTML(link){
       " data-link-read=" + link.read +
       " class='been-there link'>" +
 
-      "<td contenteditable='false' data-link-id=" + link.id +
-
-      " class='title-input'>" + link.title + "</td>" +
+      "<td contenteditable='false' " + "id='"+ link.id + "' data-link-id=" +
+      
+      link.id + " class='title-input'>" + link.title + "</td>" +
 
       "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 
@@ -48,9 +48,10 @@ function linkHTML(link){
       " data-link-title=" + link.title +
       " data-link-read=" + link.read +
       " class='not-yet link'>" +
-      "<td contenteditable='false' data-link-id=" + link.id +
 
-      " class='title-input'>" + link.title + "</td>" +
+      "<td contenteditable='false' " + "id='"+ link.id + "' data-link-id=" +
+
+      link.id + " class='title-input'>" + link.title + "</td>" +
 
       "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 

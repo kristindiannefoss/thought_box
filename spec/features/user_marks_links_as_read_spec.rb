@@ -19,10 +19,12 @@ RSpec.feature "UserViewsLinkPage", type: :feature do
     click_on("Save Link")
 
     link1 = Link.first
-
-    within(:css, "#{}links-#{link1.id}") do
+#links-table > tbody > tr.been-there.link
+# $('[data-link-id="21"]')
+    # id = "#{link1.id}"
+    # within("#"+"#{link1.id}") do
       click_on("Mark as Read")
-    end
+    # end
 
     expect(page).to have_content("deep thoughts")
     expect(page).to have_content("http://www.deepthoughtsbyjackhandey.com/")

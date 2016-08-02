@@ -13,6 +13,7 @@ class LinksController < ApplicationController
   end
 
   def index
+    @user_id = @user.id
     @link = @user.links.new
     @links = @user.links
     @statuses = [true, false, "All"]
