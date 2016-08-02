@@ -14,7 +14,9 @@ function loadLinks(){
 function linkHTML(link){
   if(link.read === true){
     return (
-      "<tr data-link-id=" + link.id + " class='been-there'>" +
+      "<tr data-link-id=" + link.id +
+      " data-link-title=" + link.title +
+      " class='been-there link'>" +
 
       "<td contenteditable='false' data-link-id=" + link.id +
 
@@ -23,7 +25,7 @@ function linkHTML(link){
       "<td contenteditable='false' data-link-id=" + link.id +
 
       " class='url-input'>" + link.url + "</td>" +
-      
+
       "<td>" + link.read + "<td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
@@ -31,13 +33,13 @@ function linkHTML(link){
     );
   } else {
     return (
-      "<tr data-link-id=" + link.id + ">" +
-
+      "<tr data-link-id=" + link.id +
+      " data-link-title=" + link.title + " class='link'>" +
       "<td contenteditable='false' data-link-id=" + link.id +
 
       " class='title-input'>" + link.title + "</td>" +
 
-      "<td contenteditable='false' class='url-input'>" + link.url + "</td>" +
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td>" +
 
       "<td>" + link.read + "<td>" +
 

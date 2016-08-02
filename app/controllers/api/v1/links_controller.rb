@@ -12,7 +12,6 @@ class Api::V1::LinksController < Api::ApiController
   end
 
   def create
-    binding.pry
     user = current_user
     link = user.links.create(link_params)
     if link.save
@@ -27,7 +26,6 @@ class Api::V1::LinksController < Api::ApiController
 
   def update
     link = Link.find(params[:link][:id])
-
     respond_with link.update(link_params)
   end
 

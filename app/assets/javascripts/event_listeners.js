@@ -15,9 +15,6 @@ $(document).on('click', '#baby-fake-button', function(e){
   var urlValue = $("#fake-form-url").val();
   console.log("that tickles");
   createNewLink(titleValue, urlValue);
-  // console.log(titleValue);
-  // console.log(titleUrl);
-  // debugger;
 });
 
 function createNewLink(title, url){
@@ -48,12 +45,11 @@ function updateUrl(id, url){
     dataType: "json",
     data: {link: {id: id, url: url},},
     success: function(link){
+
     },
     error: function(){
       alert("bad news");
     }
-          // $("#links-table tr").remove();
-          // loadLinks();
   });
 }
 
@@ -82,4 +78,10 @@ function listenForReturn(e){
       e.target.setAttribute("contenteditable", "false");
     }
   });
+}
+
+var $links = $('.link');
+
+function filterByReadStatus(){
+
 }
