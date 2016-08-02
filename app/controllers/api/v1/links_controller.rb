@@ -14,14 +14,13 @@ class Api::V1::LinksController < Api::ApiController
   def create
     user = User.find(params[:user_id])
     link = user.links.create(link_params)
-    if link.save
-      respond_with link
-    end
+    respond_with link
   end
 
   def destroy
-    user = User.find(params[:id])
-    respond_with status: 204 if user.links.delete(params[:id])
+    # binding.pry
+    user = User.find(params["link"]["user_id"])
+    respond_with status: 204 if user.links.delete(params["id"])
   end
 
   def update

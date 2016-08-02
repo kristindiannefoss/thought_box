@@ -2,6 +2,10 @@ $(document).on('click', '.read-button', function(e){
   updateRead(e);
 });
 
+$(document).on('click', '.delete-button', function(e){
+  deleteLink(e);
+});
+
 $(document).on('click', '#alpha-fake-button', function(e){
   console.log('ouch');
   loadLinksByAlpha();
