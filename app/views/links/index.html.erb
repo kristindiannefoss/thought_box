@@ -2,18 +2,18 @@
   <h1>Submit a New Link</h1>
 
   <%= form_for(@link) do |f| %>
-    <%= f.text_field :title, placeholder: "Title", class:"form-control" %><br>
-    <%= f.text_field :url, placeholder: "URL", class:"form-control" %><br>
-    <%= f.submit "Save Link", class:"btn btn-primary"%>
+    <%= f.text_field :title, placeholder: "Title", class:"form-control", id:"form-title" %><br>
+    <%= f.text_field :url, placeholder: "URL", class:"form-control", id:"form-url"%><br>
+    <%= f.submit "Save Link", class:"btn", id:"baby-fake-button"%>
   <% end %>
-  <div id="baby-fake-button">
+  <!-- <div id="baby-fake-button">
     <p>Looks Like a button</p>
-  </div>
-
+  </div> -->
+<!--
   <div class="fake-form">
     <input type="text" id="fake-form-title" value="" placeholder="title">
     <input type="text" id="fake-form-url" value=""placeholder="url">
-  </div>
+  </div> -->
 
   <h1>My Links</h1>
 

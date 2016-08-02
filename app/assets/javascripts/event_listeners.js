@@ -16,8 +16,9 @@ $(document).on('click', '.url-input', function(e){
 });
 
 $(document).on('click', '#baby-fake-button', function(e){
-  var titleValue = $("#fake-form-title").val();
-  var urlValue = $("#fake-form-url").val();
+  e.preventDefault();
+  var titleValue = $("#form-title").val();
+  var urlValue = $("#form-url").val();
   console.log("that tickles");
   createNewLink(titleValue, urlValue);
 });
