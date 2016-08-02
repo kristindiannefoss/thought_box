@@ -15,5 +15,4 @@ $(document).ready(function (){
     $(this).css("background-color", "pink");
     updateUrl(this.dataset.linkId, this.innerText);
   });
-
 });
