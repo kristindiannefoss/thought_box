@@ -60,7 +60,7 @@ function updateRead(e){
     dataType: "json",
     data: {link: {id: e.target.dataset.linkId, read: true, user_id: e.target.dataset.userId}},
     success: function(link){
-      $("tr[data-link-id='" + e.target.dataset.linkId + "']").addClass("been-there");
+      $("tr[data-link-id='" + e.target.dataset.linkId + "']").removeClass("not-yet").addClass("been-there");
     }
   });
 }
@@ -80,8 +80,21 @@ function listenForReturn(e){
   });
 }
 
-var $links = $('.link');
-
-function filterByReadStatus(){
-
-}
+// var $links = $('.link');
+//
+//
+//   $('#link_filter_read').on('change', function () {
+//     var chosenStatus = this.value;
+//     if (chosenStatus === "All Links") {
+//       $('.link').show();
+//     } else {
+//       $links.each(function (index, link) {
+//         var $link = $(link);
+//         if ($link.data('link-read') === chosenStatus) {
+//           $link.show();
+//         } else {
+//           $link.hide();
+//         }
+//       });
+//     }
+//   });

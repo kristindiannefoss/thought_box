@@ -6,9 +6,9 @@
     <%= f.text_field :url, placeholder: "URL", class:"form-control" %><br>
     <%= f.submit "Save Link", class:"btn btn-primary"%>
   <% end %>
-<div id="baby-fake-button">
-  <p>Looks Like a button</p>
-</div>
+  <div id="baby-fake-button">
+    <p>Looks Like a button</p>
+  </div>
 
   <div class="fake-form">
     <input type="text" id="fake-form-title" value="" placeholder="title">
@@ -16,9 +16,17 @@
   </div>
 
   <h1>My Links</h1>
-    <div id="links-div">
-      <table id="links-table">
 
-      </table>
-    </div>
+  <div class="filter">
+    <label>Filter By Read Status</label>
+    <%= select :link, :read, @statuses, selected: "All" %>
+    <!-- <label>Search By Name</label>
+    <%= text_field :need, :filter_name %> -->
+  </div>
+
+  <div id="links-div">
+    <table id="links-table">
+
+    </table>
+  </div>
 </div>

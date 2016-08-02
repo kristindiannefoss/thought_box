@@ -15,6 +15,7 @@ class LinksController < ApplicationController
   def index
     @link = @user.links.new
     @links = @user.links
+    @statuses = [true, false, "All"]
   end
 
   def update

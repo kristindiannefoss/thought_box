@@ -16,6 +16,7 @@ function linkHTML(link){
     return (
       "<tr data-link-id=" + link.id +
       " data-link-title=" + link.title +
+      " data-link-read=" + link.read +
       " class='been-there link'>" +
 
       "<td contenteditable='false' data-link-id=" + link.id +
@@ -34,7 +35,9 @@ function linkHTML(link){
   } else {
     return (
       "<tr data-link-id=" + link.id +
-      " data-link-title=" + link.title + " class='link'>" +
+      " data-link-title=" + link.title +
+      " data-link-read=" + link.read +
+      " class='not-yet link'>" +
       "<td contenteditable='false' data-link-id=" + link.id +
 
       " class='title-input'>" + link.title + "</td>" +
