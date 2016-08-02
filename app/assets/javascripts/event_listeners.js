@@ -80,21 +80,47 @@ function listenForReturn(e){
   });
 }
 
-// var $links = $('.link');
-//
-//
-//   $('#link_filter_read').on('change', function () {
-//     var chosenStatus = this.value;
-//     if (chosenStatus === "All Links") {
-//       $('.link').show();
-//     } else {
-//       $links.each(function (index, link) {
-//         var $link = $(link);
-//         if ($link.data('link-read') === chosenStatus) {
-//           $link.show();
-//         } else {
-//           $link.hide();
-//         }
-//       });
-//     }
+function filterByReadStatus(){
+  $('select#link_read').change(function() {
+    var value = $('select#link_read').val();
+    $(".link").fadeOut("fast");
+    if (value == "All") {
+      $(".link").slideDown("fast");
+    } else if (value === "true") {
+      $('.been-there').slideDown("fast");
+    } else if (value === "false") {
+      $('.not-yet').slideDown("fast");
+    }
+  });
+}
+
+// function filterByTitle(){
+//   $('#link_title').on('keyup', function (){
+//     debugger;
+//     var keyword = this.value;
+//     // console.log(keyword);
+//     $('.link').each(function (index, link) {
+//       $link = $(link);
+//       if ($link.data('link-title').toLowerCase().includes(keyword.toLowerCase())) {
+//         $need.show();
+//       } else {
+//         $need.hide();
+//       }
+//     });
 //   });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// g

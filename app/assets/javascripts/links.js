@@ -1,10 +1,8 @@
 $(document).ready(function (){
   loadLinks();
   listenForReturn();
-  // $('select#link_read').val() =
-  // var value = $('select#link_read').val();
-  // $('select#link_read').val() == "All";
-  // filterByReadStatus();
+  filterByReadStatus();
+  // filterByTitle();
 
   $('#links-div').on('blur', '.title-input', function() {
     $(this).attr('contentEditable', 'false');
@@ -18,17 +16,22 @@ $(document).ready(function (){
     updateUrl(this.dataset.linkId, this.innerText);
   });
 
-  $('select#link_read').change(function() {
-    var value = $('select#link_read').val();
+var $links = $('.link');
 
-    $(".link").fadeOut("fast");
-
-    if (value == "All") {
-      $(".link").slideDown("fast");
-      } else if (value === "true") {
-        $('.been-there').slideDown("fast");
-      } else if (value === "false") {
-        $('.not-yet').slideDown("fast");
-      }
+  function filterByTitle(){
+    $('.title-search').keyup (function (){
+      // console.log("this input here")
+      // debugger;
+      var keyword = this.value;
+      console.log(keyword);
+      $('.link').each(function (index, link) {
+        $link = $(link);
+        if ($link.data('link-title').toLowerCase().includes(keyword.toLowerCase())) {
+          $link.show();
+        } else {
+          $link.hide();
+        }
+      });
     });
+  }
 });

@@ -20,8 +20,8 @@
   <div class="filter">
     <label>Filter By Read Status</label>
     <%= select :link, :read, @statuses, selected: "All" %>
-    <!-- <label>Search By Name</label>
-    <%= text_field :need, :filter_name %> -->
+    <label>Search By Title</label>
+    <%= text_field :link, :title, class: "title-search" %>
   </div>
 
   <div id="links-div">
