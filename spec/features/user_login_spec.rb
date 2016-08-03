@@ -29,7 +29,7 @@ RSpec.feature "UserLogin", type: :feature do
 
     click_on("Create Account")
 
-    expect(current_path).to eq "/dashboard"
+    expect(current_path).to eq "/links"
     expect(page).to have_content('test@gmail.com')
     expect(page).to_not have_link "Login"
     expect(page).to have_link "Logout"

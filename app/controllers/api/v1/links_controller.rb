@@ -6,11 +6,6 @@ class Api::V1::LinksController < Api::ApiController
     respond_with [user.links.order('id'), user.links.order('title')]
   end
 
-  def show
-    user = User.find(params[:id])
-    respond_with user.links.find(params[:link][:id])
-  end
-
   def create
     user = User.find(params[:user_id])
     link = user.links.create(link_params)
@@ -18,7 +13,6 @@ class Api::V1::LinksController < Api::ApiController
   end
 
   def destroy
-    # binding.pry
     user = User.find(params["link"]["user_id"])
     respond_with status: 204 if user.links.delete(params["id"])
   end

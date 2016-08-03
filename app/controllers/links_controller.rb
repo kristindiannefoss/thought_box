@@ -1,8 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_user
-
-  # TODO: get this flash message working and tested
-
+  
   def create
     @link = @user.links.create(link_params)
     if @link.save

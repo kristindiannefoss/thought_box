@@ -1,30 +1,35 @@
+
 <div class="container">
-  <p id="user_id"><%= @user_id %></p>
-
-<div class="form-div">
-  <h1>Submit a New Link</h1>
-
-  <%= form_for(@link) do |f| %>
-  <%= f.text_field :title, placeholder: "Title", class:"form-control", id:"form-title" %><br>
-  <%= f.text_field :url, placeholder: "URL", class:"form-control", id:"form-url"%><br>
-  <% end %>
-  <input class="btn btn-default" id="baby-fake-button" type="button" value="Save">
-  <p class="no-good"></p>
-</div>
-<div class="link-list-div">
-  <h1>My Links</h1>
-
-  <div class="filter">
-    <label>Filter By Read Status</label>
-    <%= select :link, :read, @statuses, selected: "All" %>
-    <br>
-    <label>Search By Title:</label>
-    <%= text_field :link, :title, class: "title-search form-control shrink" %>
+  <div class="top-right">
+    <p>Signed in as <%= @user.email %> </p>  <%= link_to "Logout", logout_path, method: :delete %>
   </div>
 
-  <input class="btn btn-default" id="alpha-fake-button" type="button" value="Sort Links Alphabetically">
+  <p id="user_id"><%= @user_id %></p>
 
-</div>
+  <div class="form-div">
+    <h1>Submit a New Link</h1>
+
+    <%= form_for(@link) do |f| %>
+    <%= f.text_field :title, placeholder: "Title", class:"form-control", id:"form-title" %><br>
+    <%= f.text_field :url, placeholder: "URL", class:"form-control", id:"form-url"%><br>
+    <% end %>
+    <input class="btn btn-default" id="baby-fake-button" type="button" value="Save">
+    <p class="no-good"></p>
+  </div>
+  <div class="link-list-div">
+    <h1>My Links</h1>
+
+    <div class="filter">
+      <label>Filter By Read Status</label>
+      <%= select :link, :read, @statuses, selected: "All" %>
+      <br>
+      <label>Search By Title:</label>
+      <%= text_field :link, :title, class: "title-search form-control shrink" %>
+    </div>
+
+    <input class="btn btn-default" id="alpha-fake-button" type="button" value="Sort Links Alphabetically">
+
+  </div>
 
   <br>
 

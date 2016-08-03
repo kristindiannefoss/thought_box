@@ -1,4 +1,4 @@
-function createNewLink(title, url){
+function createNewLink(title, url, readStatus){
   var id = $('#user_id').text();
   $('.no-good').fadeOut('fast');
   $('#form-url').val('').removeClass('invalid');
@@ -6,7 +6,7 @@ function createNewLink(title, url){
     method: 'POST',
     url: 'api/v1/links/',
     dataType: 'json',
-    data: {link: {title: title, url: url}, user_id: id},
+    data: {link: {title: title, url: url, read: false}, user_id: id},
     success: function(response){
       $('#links-table').append(linkHTML(response));
       $('#form-title').val('');
