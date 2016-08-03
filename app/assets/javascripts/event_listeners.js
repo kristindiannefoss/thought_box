@@ -2,6 +2,15 @@ $(document).on('click', '.read-button', function(e){
   updateRead(e);
 });
 
+$(document).on('click', '.delete-button', function(e){
+  deleteLink(e);
+});
+
+$(document).on('click', '#alpha-fake-button', function(e){
+  console.log('ouch');
+  loadLinksByAlpha();
+});
+
 $(document).on('click', '.title-input', function(e){
   e.target.setAttribute("contenteditable", "true");
 });
@@ -11,59 +20,12 @@ $(document).on('click', '.url-input', function(e){
 });
 
 $(document).on('click', '#baby-fake-button', function(e){
-  var titleValue = $("#fake-form-title").val();
-  var urlValue = $("#fake-form-url").val();
+  e.preventDefault();
+  var titleValue = $("#form-title").val();
+  var urlValue = $("#form-url").val();
   console.log("that tickles");
   createNewLink(titleValue, urlValue);
 });
-
-function createNewLink(title, url){
-  $.ajax({
-    method: 'POST',
-    url: "api/v1/links/",
-    dataType: "json",
-    data: {link: {title: title, url: url}},
-    success: function(response){
-        $('#links-table').append(linkHTML(response));
-      }
-  });
-}
-
-function updateTitle(id, title){
-  $.ajax({
-    method: 'PATCH',
-    url: "api/v1/links/" + id,
-    dataType: "json",
-    data: {link: {id: id, title: title}}
-  });
-}
-
-function updateUrl(id, url){
-  $.ajax({
-    method: 'PATCH',
-    url: "api/v1/links/" + id,
-    dataType: "json",
-    data: {link: {id: id, url: url},},
-    success: function(link){
-
-    },
-    error: function(){
-      alert("bad news");
-    }
-  });
-}
-
-function updateRead(e){
-  $.ajax({
-    method: 'PATCH',
-    url: "api/v1/links/" + e.target.dataset.linkId,
-    dataType: "json",
-    data: {link: {id: e.target.dataset.linkId, read: true, user_id: e.target.dataset.userId}},
-    success: function(link){
-      $("tr[data-link-id='" + e.target.dataset.linkId + "']").addClass("been-there");
-    }
-  });
-}
 
 function listenForReturn(e){
   document.addEventListener("keydown", function(e) {
@@ -78,10 +40,4 @@ function listenForReturn(e){
       e.target.setAttribute("contenteditable", "false");
     }
   });
-}
-
-var $links = $('.link');
-
-function filterByReadStatus(){
-
 }

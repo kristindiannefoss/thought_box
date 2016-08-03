@@ -19,6 +19,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'launchy'
+  gem "teaspoon-jasmine"
+  gem "capybara-webkit"
 end
 
 group :development do

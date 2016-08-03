@@ -4,7 +4,21 @@ function loadLinks(){
     url: '/api/v1/links',
     dataType: 'JSON',
     success: function(response){
-      response.map(function(link){
+      response[0].map(function(link){
+        $('#links-table').append(linkHTML(link));
+      });
+    }
+  });
+}
+
+function loadLinksByAlpha(){
+  $.ajax({
+    type: 'GET',
+    url: '/api/v1/links',
+    dataType: 'JSON',
+    success: function(response){
+      $('#links-table').children().remove();
+      response[1].map(function(link){
         $('#links-table').append(linkHTML(link));
       });
     }
@@ -16,35 +30,39 @@ function linkHTML(link){
     return (
       "<tr data-link-id=" + link.id +
       " data-link-title=" + link.title +
+      " data-link-read=" + link.read +
       " class='been-there link'>" +
 
-      "<td contenteditable='false' data-link-id=" + link.id +
+      "<td contenteditable='false' " + "id='"+ link.id + "' data-link-id=" +
 
-      " class='title-input'>" + link.title + "</td>" +
+      link.id + " class='title-input'>" + link.title + "</td>" +
 
-      "<td contenteditable='false' data-link-id=" + link.id +
-
-      " class='url-input'>" + link.url + "</td>" +
-
-      "<td>" + link.read + "<td>" +
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
+
+      "<button class='btn btn-default delete-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Delete</button></td>" + "</tr>"
     );
   } else {
     return (
       "<tr data-link-id=" + link.id +
-      " data-link-title=" + link.title + " class='link'>" +
-      "<td contenteditable='false' data-link-id=" + link.id +
+      " data-link-title=" + link.title +
+      " data-link-read=" + link.read +
+      " class='not-yet link'>" +
 
-      " class='title-input'>" + link.title + "</td>" +
+      "<td contenteditable='false' " + "id='"+ link.id + "' data-link-id=" +
 
-      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td>" +
+      link.id + " class='title-input'>" + link.title + "</td>" +
 
-      "<td>" + link.read + "<td>" +
+      "<td contenteditable='false' class='url-input' data-link-id=" + link.id + ">" + link.url + "</td><td>" +
 
       "<button class='btn btn-default read-button' data-link-id='" + link.id +
-      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" + "</tr>"
+      "' data-user-id='" + link.user_id + "'>Mark as Read</button>" +
+
+      "<button class='btn btn-default delete-button' data-link-id='" + link.id +
+      "' data-user-id='" + link.user_id + "'>Delete</button></td>" + "</tr>"
     );
   }
 }

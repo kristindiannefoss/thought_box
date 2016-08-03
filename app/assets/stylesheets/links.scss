@@ -3,12 +3,69 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .been-there {
-  color: purple;
+  color:  rgb(123, 76, 55);
   font-style: italic;
 }
 
+btn {
+  background-color: #675e5a;
+  margin: 5px;
+}
+
+#alpha-fake-button {
+  margin: 10px;
+}
+
 #baby-fake-button {
-  height: 50px;
-  width: 100px;
-  background-color: aqua;
+  width: 154.281px;
+  padding: 12px;
+}
+
+#user_id {
+  display: none;
+}
+
+.link-list-div {
+  margin: auto;
+  width: 700px;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  width: 700px;
+}
+
+.form-div {
+  text-align: center;
+  margin: auto;
+  width: 600px;
+}
+
+input#link_title {
+  width: 200px;
+  display: inline-block;
+}
+
+.invalid {
+  border-color: red;
+  border-width: 3px;
+}
+
+.no-good {
+  display: none;
+}
+
+.options {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.padded {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.top-right {
+  float: right;
 }
